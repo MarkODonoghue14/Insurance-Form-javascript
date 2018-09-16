@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang='cs'>
+  <head>
+    <title></title>
+    <meta charset='utf-8'>
+    <meta name='description' content=''>
+    <meta name='keywords' content=''>
+    <meta name='author' content=''>
+    <meta name='robots' content='all'>
+    <!-- <meta http-equiv='X-UA-Compatible' content='IE=edge'> -->
+    <link href='/favicon.png' rel='shortcut icon' type='image/png'>
+  </head>
+  <body>
+  <!-- Bootstrap core CSS -->
+  <link href="./bootstrap_files/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="./bootstrap_files/form-validation.css" rel="stylesheet">
+
+
+
+
+
+
+
+
+  <div class="container">
+      <div class="py-5 text-center">
+
+
+
+                           <h1> Your form has been submitted!</h1>
+      </div>
+
+
+
+                        <h2>
+
+
+
+                            You entered the following data:</h2>
+
+
+
+
+
+
+
+                        <script type="text/javascript">
+
+
+
+                   //Return the querystring part of a URL. 
+
+
+                            var formData = location.search;
+
+//This method extracts the characters in a string between "start" and "end", not including "end" itself.
+
+
+                            formData = formData.substring(1, formData.length);
+
+//The indexOf() method returns the position of the first occurrence of a specified value in a string.
+//This method returns -1 if the value to search for never occurs. 
+
+
+                            while (formData.indexOf("+") != -1) {
+
+
+
+	                            formData = formData.replace("+", " ");
+
+
+
+                            }
+
+//The decodeURI() function is used to decode a URI. Remove %20 etc 
+formData = decodeURI(formData);
+
+
+                            var formArray = formData.split("&");
+
+//Split a string into an array of substrings:
+
+
+                            document.write("<p>");
+
+
+
+                            for (var i=0; i < formArray.length; ++i) {
+
+
+
+	                            document.writeln(formArray[i] + "<br />");
+
+
+
+                            }
+
+
+
+                            document.write("</p>");
+
+
+
+                   
+
+
+                        </script>
+
+
+
+
+
+
+</div>
+         
+
+  </body>
+</html>

@@ -1,0 +1,386 @@
+    <script type="text/javascript">
+
+    var totalCost = 0;
+    var custAge = 0;
+    var carAge = 0;
+    var Milage = 0;
+    var carValue = 0;
+    var genderValue = 0;
+    var securityValue = 0;
+    var usageCost = 0;
+    var claimCost = 0;
+    var fuelCost = 0;
+    var CoverCost = 0;
+
+
+
+
+    function calcAge(age,id){
+
+
+    cost = 0;
+
+    if(age>=16 && age < 25) {
+    cost = 500;
+    }
+
+    else if(age>=25 && age<=30){
+    cost = 350;
+    }
+
+    else if(age > 30 && age < 65){
+    cost = 200;
+
+    }
+
+    else if(age >=65){
+    cost = 500;
+    }
+
+    else if(age < 16){
+    alert("Please enter an appropriate age");
+    document.getElementById(id).value ="";
+    document.getElementById(id).focus();
+    }
+    //assigning variable CustAge to hold the value of age
+    custAge = cost;
+    // document.getElementById("TotalCost").value = cost;
+    alert(cost);
+
+    }
+
+    function calcCarAge(carage){
+
+    cost = 0;
+
+    if(carage < 3){
+    cost = 100;
+    }
+
+    else if(carage >= 3 && carage < 6){
+    cost = 70;
+    }
+
+    else if(carage >= 6 && carage < 10){
+    cost = 50;
+    }
+    else if(carage >=10){
+    cost = 20;
+    }
+
+    carAge = cost;
+    alert(cost);
+    //document.getElementById("TotalCost").value = cost;
+
+
+    }
+
+    function calcMilagePerYear(mileage){
+
+    cost = 0;
+    if(mileage < 15000 ){
+    cost = 30;
+    }
+    else if( mileage >= 15000 && mileage < 25000){
+    cost = 40;
+    }
+    else if( mileage >= 25000 )
+    {
+    cost = 50;
+    }
+    Milage = cost;
+
+    alert(Milage);
+    }
+
+    function calCarValue(carvalue){
+
+    if(isNaN(carvalue)) {
+    carValue = 0;
+    }
+    else {
+
+    cost = 0;
+
+    cost = (carvalue * 0.10);
+
+    carValue = cost;
+
+    alert(carValue);
+    }
+
+
+    }
+
+
+
+    function calcGender(gender) {
+    cost = 0;
+    cost = gender;
+    genderValue = cost;
+    alert(genderValue);
+
+
+    }
+
+    function calcSecurity(security){
+    cost = 0;
+    cost = security;
+    securityValue = cost;
+    alert(securityValue);
+
+    }
+
+    function calcarUsage(usage){
+    cost = 0;
+    cost = usage;
+    usageCost = cost;
+    alert(usageCost);
+
+    }
+
+    function calcClaimsFree(claim){
+    cost = 0;
+    cost = claim;
+    claimCost = cost;
+    alert(claimCost);
+    }
+
+
+    function calcFuelType(fuel){
+    cost = 0;
+    cost = fuel;
+    fuelCost = cost;
+    alert(fuelCost);
+
+    }
+
+    function calcTypeOfCover(cover){
+    cost = 0;
+    cost = cover;
+    CoverCost = cost;
+    alert(CoverCost);
+    }
+
+    function validateemptybox(text){
+
+    validatestring = document.getElementById(text).value;
+    if(validatestring.length < 1)
+    {
+    alert("This field requires text");
+    }
+
+    }
+
+    function validateIsNumber(text,name)
+    {
+
+
+    if(isNaN(text)){
+
+    alert("sorry only numbers are allowed in this field");
+    document.getElementById(name).value = "";
+    document.getElementById(name).focus();
+
+
+    }
+
+
+
+
+    }
+
+
+
+
+    //noticed that nan only checks if all text box is not a number this method will search through each indivdual
+    // element of the textbox and determine wheter the element is a number or not
+
+
+    function validateNotNumbers(text,name){
+    var found = false;
+
+
+    for(i = 1; i<=text.length ;i++) {
+
+    if (!isNaN(text[i])) {
+    found = true;
+
+    }
+
+    }
+    if(found === true) {
+    alert("sorry numbers are not allowed in this field");
+    document.getElementById(name).value = "";
+    document.getElementById(name).focus();
+    }
+
+
+    }
+
+    function validateDate(policy,name){
+    //alert(policy);
+    var day = policy.charAt(8)+ policy.charAt(9);
+    // alert(day);
+    var Month = policy.charAt(5)+policy.charAt(6);
+    // alert(Month);
+    var Year = policy.charAt(0)+policy.charAt(1)+policy.charAt(2)+policy.charAt(3);
+    //  alert(Year);
+
+
+    var date = new Date(Year + "/" + Month + "/"  +day);
+    // alert(date);
+
+
+
+    var todays = new Date();
+
+
+    if(date <= todays){
+    alert("Please choose a date in the future");
+    document.getElementById(name).value = "";
+    document.getElementById(name).focus();
+
+    }
+
+
+    }
+
+    function generateMake(make) {
+    if (make === "Audi") {
+
+    var audiR8 = new Option("R8", "R8");
+    var audiA6 = new Option("A6", "A6");
+
+    document.forms[0].Model.options[1] = audiR8;
+    document.forms[0].Model.options[2] = audiA6;
+
+    }
+
+    else if (make === "Bmw") {
+    var bmw3series = new Option("3Series", "3Series");
+    var bmw5series = new Option("5Series", "5Series");
+
+    document.forms[0].Model.options[1] = bmw3series;
+    document.forms[0].Model.options[2] = bmw5series;
+    }
+
+    else if (make === "Peugeot") {
+    var peugeot206 = new Option("206", "206");
+    var peugeot307 = new Option("307", "307");
+
+    document.forms[0].Model.options[1] = peugeot206;
+    document.forms[0].Model.options[2] = peugeot307;
+    }
+
+    else if (make === "Toyata") {
+    var toyatac = new Option("Corolla", "Corolla");
+    var toyataa = new Option("Avensis", "Avensis");
+
+    document.forms[0].Model.options[1] = toyatac;
+    document.forms[0].Model.options[2] = toyataa;
+
+    }
+
+    else {
+    var VolkswagonG = new Option("Golf", "Golf");
+    var Volkswagonj = new Option("Jetta", "Jetta");
+
+    document.forms[0].Model.options[1] = VolkswagonG;
+    document.forms[0].Model.options[2] = Volkswagonj;
+    }
+
+    }
+
+
+
+
+    function calcTotalCost() {
+
+    totalCost = 0;
+    totalCost = custAge + carAge + Milage + carValue + genderValue + securityValue + usageCost + claimCost + fuelCost + CoverCost;
+    document.getElementById("TotalCost").value = totalCost;
+
+
+    }
+
+    function validateformfilled(){
+    if(document.forms[0].Forename.value === ""){
+    alert("You have not filled out forename correctly");
+    document.getElementById("Forenameinput").focus();
+    return false;
+
+
+    }
+    else if(document.forms[0].Surname.value ===""){
+    alert("You have not filled out Surname correctly");
+    document.getElementById("Surnameinput").focus();
+    return false;
+
+    }
+
+    else if(genderValue === 0){
+    alert("You have not filled out gender correctly");
+    document.getElementById("Maleinput").focus();
+    return false;
+
+    }
+
+    else if(securityValue === 0){
+    alert("You have not filled out what security your car has");
+    document.getElementById("NoneInput").focus();
+    return false;
+
+    }
+
+    else if(usageCost === 0){
+    alert("You have not filled out the use of your vehicle");
+    document.getElementById("SocialInput").focus();
+    return false;
+
+    }
+
+    return true;
+
+
+
+    }
+
+
+
+
+
+
+    var x = setInterval(function () {
+
+    var time = document.getElementById("time").innerHTML;
+
+    var times = time.split(":");
+    var minutes = times[0];
+    var seconds = times[1];
+
+
+    var secs = checkSecond((seconds - 1));
+    if (secs === 59) {
+    minutes -= 1
+    }
+
+
+    document.getElementById("time").innerHTML = minutes + ":" + secs;
+
+
+    }, 1000)
+
+
+    function checkSecond(sec) {
+    if (sec < 10 && sec >= 0) {
+    sec = "0" + sec;
+    }
+
+    if (sec < 0) {
+    sec = 59;
+
+    }
+
+    return sec;
+    }
